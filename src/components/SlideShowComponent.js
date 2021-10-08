@@ -17,11 +17,14 @@ export default class SlideShowComponent extends Component {
       <ImageGallery
         items={images}
         showBullets={false}
-        // showIndex={true}
+        showIndex={false}
         showThumbnails={false}
         lazyLoad={true}
         autoPlay={true}
         showPlayButton={false}
+        slideInterval={9000}
+        showFullscreenButton = {false}
+        swipingTransitionDuration={1000}
       />
     );
   }
