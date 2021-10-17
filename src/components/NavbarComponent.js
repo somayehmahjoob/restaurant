@@ -13,7 +13,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function  NavbarComponent(){
+export default function  Navbart(){
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (

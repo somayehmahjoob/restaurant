@@ -3,7 +3,7 @@ import ImageGallery from "react-image-gallery";
 
 const PREFIX_URL = "../assets/images/";
 
-export default class SlideShowComponent extends Component {
+export default class SlideShow extends Component {
   render() {
     const images = [
       {

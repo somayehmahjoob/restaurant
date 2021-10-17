@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import MenuComponent from './components/MenuComponent';
-import NavbarComponent from './components/NavbarComponent';
-import SlideShowComponent from './components/SlideShowComponent';
+import Menu from './components/MenuComponent';
+import Navbar from './components/NavbarComponent';
+import SlideShow from './components/SlideShowComponent';
 import { DISHES } from './shared/dishes';
 
 class App extends Component{
@@ -15,9 +15,9 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        <NavbarComponent />
-        <SlideShowComponent />
-        <MenuComponent dishes={this.state.dishes} />
+        <Navbar />
+        <SlideShow />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }
