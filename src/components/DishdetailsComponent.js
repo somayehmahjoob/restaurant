@@ -11,7 +11,7 @@ export default class Dishdetails extends Component {
   renderDish(dish) {
     if (dish != null) {
       return (
-        <div className="container px-0 py-24 mx-auto text-left">
+        <div className="px-0 pb-12 mx-auto text-left">
           <div className="lg:w-4/5 mx-0 flex flex-wrap">
             <img
               alt={dish.name}
@@ -77,35 +77,35 @@ export default class Dishdetails extends Component {
             </p>
             <div className="flex items-center mt-1">
               <svg
-                class="w-4 h-4 fill-current text-yellow-600"
+                className="w-4 h-4 fill-current text-yellow-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
                 <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
               </svg>
               <svg
-                class="w-4 h-4 fill-current text-yellow-600"
+                className="w-4 h-4 fill-current text-yellow-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
                 <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
               </svg>
               <svg
-                class="w-4 h-4 fill-current text-yellow-600"
+                className="w-4 h-4 fill-current text-yellow-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
                 <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
               </svg>
               <svg
-                class="w-4 h-4 fill-current text-yellow-600"
+                className="w-4 h-4 fill-current text-yellow-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
                 <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
               </svg>
               <svg
-                class="w-4 h-4 fill-current text-yellow-600"
+                className="w-4 h-4 fill-current text-yellow-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
@@ -123,7 +123,7 @@ export default class Dishdetails extends Component {
 
     return (
       <div className="mt-5 border rounded shadow-md">
-        <div className="bg-gray-800 text-white font-extrabold py-5 rounded-t-md bg-cover">
+        <div className="bg-gray-800 text-white text-2xl font-bold py-5 rounded-t-md bg-cover pl-6">
           Comments
         </div>
         <div className="mt-2 p-4">{commentForDish}</div>
@@ -136,14 +136,14 @@ export default class Dishdetails extends Component {
       return <div></div>;
     }
     return (
-      <>
-        <section className ="body-font overflow-hidden">
+      <div className="max-w-2xl mx-auto py-8 px-4 sm:py-16 sm-6 lg:max-w-7xl lg:px-8">
+        <section className="body-font overflow-hidden">
           {this.renderDish(dish)}
         </section>
-        <section className ="body-font overflow-hidden">
+        <section className="body-font overflow-hidden">
           {this.renderComments(dish.comments)}
         </section>
-      </>
+      </div>
     );
   }
 }

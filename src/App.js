@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-import Menu from './components/MenuComponent';
-import Navbar from './components/NavbarComponent';
-import SlideShow from './components/SlideShowComponent';
-import { DISHES } from './shared/dishes';
+import Main from './components/MainComponent';
 
-class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      dishes : DISHES
-    };
-  }
+import './App.css';
+
+class App extends Component{  
   render(){
     return (
       <div className="App">
-        <Navbar />
-        <SlideShow />
-        <Menu dishes={this.state.dishes} />
+        <Main />
       </div>
     );
   }

@@ -1,18 +1,11 @@
-import React, { Component } from 'react'
-import Dishdetails from './DishdetailsComponent';
+import React, { Component } from 'react';
 
 
 export class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedDish: null
-    };
-  }
-
-  onDishSelect(dish) {
-    this.setState({selectedDish: dish});
-  }
+    this.state = {};
+  } 
 
 
   render() {
@@ -30,7 +23,7 @@ export class Menu extends Component {
           <div className="flex items-center px-6 py-3 bg-gray-900">
             <h1
               className="mx-3 text-lg font-bold text-white cursor-pointer"
-              onClick={() => this.onDishSelect(dish)}
+              onClick={() => this.props.onClick(dish.id)}
             >
               {dish.name}
             </h1>
@@ -46,8 +39,7 @@ export class Menu extends Component {
             {menuList}
           </div>
           <div className="mt-8">
-            <Dishdetails dish={this.state.selectedDish} />
-            {/* {this.renderDish(this.state.selectedDish)} */}
+            {/* <Dishdetails dish={this.state.selectedDish} />            */}
           </div>
         </div>
       </div>
