@@ -1,14 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Dishdetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectDishDetails: this.props.Dishdetails,
-      
-    };
-  }
-  renderDish(dish) {
+
+  function RenderDish({dish}) {
     if (dish != null) {
       return (
         <div className="px-0 pb-12 mx-auto text-left">
@@ -35,7 +28,7 @@ export default class Dishdetails extends Component {
     }
   }
 
-  renderComments(comments) {
+  function RenderComments({comments}) {
     if (comments == null) {
       return <div></div>;
     }
@@ -130,20 +123,22 @@ export default class Dishdetails extends Component {
       </div>
     );
   }
-  render() {
-    const dish = this.props.dish;
+
+  const Dishdetails = (props) => {
+    const dish = props.dish;
     if (dish == null) {
       return <div></div>;
     }
     return (
       <div className="max-w-2xl mx-auto py-8 px-4 sm:py-16 sm-6 lg:max-w-7xl lg:px-8">
         <section className="body-font overflow-hidden">
-          {this.renderDish(dish)}
+          <RenderDish dish = {props.dish} />
         </section>
         <section className="body-font overflow-hidden">
-          {this.renderComments(dish.comments)}
+          <RenderComments comments= {props.dish.comments} />
         </section>
       </div>
     );
   }
-}
+
+  export default Dishdetails;
