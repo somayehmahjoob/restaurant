@@ -4,6 +4,7 @@ import Navbar from "./NavbarComponent";
 import SlideShow from "./SlideShowComponent";
 import { DISHES } from "../shared/dishes";
 import Dishdetails from './DishdetailsComponent';
+import Footer from './FooterComponent';
 
 
 export default class Main extends Component {
@@ -29,6 +30,7 @@ export default class Main extends Component {
           onClick ={(dishId) => this.onDishSelect(dishId)}
         />
         <Dishdetails dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
+        <Footer />
       </div>
     );
   }
