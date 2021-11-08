@@ -5,7 +5,13 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    appearance: ["responsive"],
+    // ...
+    borderColor: ["responsive", "hover", "focus"],
+    // ...
+    outline: ["responsive", "focus"],
+    // ...
+    zIndex: ["responsive"],
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

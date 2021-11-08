@@ -1,87 +1,144 @@
-import React, { Fragment } from 'react';
-import { Disclosure } from "@headlessui/react";
-import {MenuIcon, XIcon} from '@heroicons/react/outline';
+import { Transition } from '@headlessui/react';
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 
-const navigation = [
-  {name: "Home", href: "/" , current : true},
-  {name: "Menu", href: "/" , current : false},
-  {name: "About", href: "/" , current : false},
-  {name: "contact", href: "/" , current : false}
-];
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function  Navbar(){
   return (
-    <Disclosure as="nav" className="bg-white shadow">
-      {({ open }) => (
-        <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded text-gray-600 hover:text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only"> Open main menu</span>
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
+    <>
+      <nav className="shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <img
+                  className="h-12 w-auto sm:h-10"
+                  src="../assets/images/logo@2x.png"
+                  alt="Logo"
+                />
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="lg:block h-8 w-auto"
-                    src="../assets/images/logo@2x.png"
-                    alt="Logo"
-                  />
-                </div>
-                <div className="hidden sm:block sm:ml-10">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "text-gray-900 border-b-2 border-blue-600"
-                            : "text-gray-500 hover:text-blue-500",
-                          "px-3 py-3 leading-10 text-lg font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
+              <div className="hidden md:block">
+                <div className="ml-10 flex items-baseline space-x-4">
+                  <NavLink
+                    to="/"
+                    className="hover:text-blue-800 text-gray-900 px-3 py-2 text-lg font-medium"
+                  >
+                    Home
+                  </NavLink>
+                  <NavLink
+                    to="/menu"
+                    className="hover:text-blue-800 text-gray-900 px-3 py-2 text-lg font-medium"
+                  >
+                    Menu
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="hover:text-blue-800 text-gray-900 px-3 py-2 text-lg font-medium"
+                  >
+                    About
+                  </NavLink>
+                  <NavLink
+                    to="/contact"
+                    className="hover:text-blue-800 text-gray-900 px-3 py-2 text-lg font-medium"
+                  >
+                    Contact
+                  </NavLink>
                 </div>
               </div>
             </div>
-            <Disclosure.Panel className="sm:hidden">
-              <div className="pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-blue-500 text-white"
-                        : "text-gray-700 hover:bg-blue-400 hover:text-white",
-                      "block py-2 text-base font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
+            <div className="-mr-2 flex md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                type="button"
+                className="inline-flex items-center justify-center p-2 hover:text-white hover:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Open main Menu</span>
+                {!isOpen ? (
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
                   >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </Disclosure.Panel>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
-        </>
-      )}
-    </Disclosure>
+        </div>
+        <Transition
+          show={isOpen}
+          enter="transition ease-out duration-100 transform"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="transition ease-in duration-75 transform"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          {(ref) => (
+            <div className="md:hidden" id="mobile-menu">
+              <div
+                ref={ref}
+                className="text-left px-0 pt-2 pb-3 space-y-1 sm:px-3"
+              >
+                <NavLink
+                  to="/"
+                  className="hover:bg-blue-800 hover:text-white text-gray-900 block px-3 py-2 text-sm font-medium border-t border-gray-300"
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  to="/menu"
+                  className="hover:bg-blue-800 hover:text-white  text-gray-900 block px-3 py-2 text-sm font-medium border-t border-gray-300"
+                >
+                  Menu
+                </NavLink>
+                <NavLink
+                  to="/about"
+                  className="hover:bg-blue-800 hover:text-white  text-gray-900 block px-3 py-2 text-sm font-medium border-t border-gray-300"
+                >
+                  About
+                </NavLink>
+                <NavLink
+                  to="/contact"
+                  className="hover:bg-blue-800 hover:text-white  text-gray-900 block px-3 py-2 text-sm font-medium border-t border-gray-300"
+                >
+                  Contact
+                </NavLink>
+              </div>
+            </div>
+          )}
+        </Transition>
+      </nav>
+    </>
   );
 }
+
+export default Navbar;

@@ -7,9 +7,20 @@
 .image-gallery-content .image-gallery-slide .image-gallery-image {
   max-height: initial;
 }
-.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
   display: none;
 }
-.image-gallery-ico{
+
+.image-gallery-ico {
   display: none;
+}
+
+.nav {
+  @apply flex justify-between items-center h-16 relative shadow-sm text-black font-mono text-xl;
+}
+
+.nav-link {
+  @apply pl-4 hover:text-blue-700;
 }
